@@ -1,0 +1,5 @@
+During the second hack session, we:
+
+-Grouped suicide hotline calls by veterans based on different parameters, allowing for easy visualization
+-Found a data source which allowed us to view VA hospital performances (grouped by region).  We gathered information on the mental health evaluation section for each hospital.
+In the future, we plan to find the exact percentiles of each score for the mental health parameters, create a weighted average, and create a map-based viz based on that.
