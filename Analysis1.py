@@ -1,4 +1,3 @@
-
 import urllib.request, json
 with urllib.request.urlopen("https://www.data.va.gov/sites/default/files/VeteransCrisisLineFY11toFY14AggregateFOIA1500242.json") as url:
     data = json.loads(url.read().decode())
@@ -17,13 +16,9 @@ for call in data:
     else:
         if value not in parameter:
             parameterList[parameter][value] = 1
-    '''
-        elif value in parameter:
-            parameterList[parameter][value] += 1
+    
         else:
-            continue
-'''
+            for value in parameterList[parameter].keys():
+                parameterList[parameter][value] += 1
+
 print(parameterList)
-
-
-
