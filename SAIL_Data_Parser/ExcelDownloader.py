@@ -1,5 +1,5 @@
 
-import requests, json
+import requests, json, sys
 from pathlib import Path
 
 
@@ -26,7 +26,10 @@ def downloadVAspreadsheets(dict_path, destination_folder_path):
                     filename = 'SAIL-'+VISN_str+'_'+hospital+'_fy'+year+'q'+qtr+'.xls'
                     path = destination_folder_path + filename
                     paths_tried += 1
-                    print(str(count)+'/'+str(paths_tried))
+                    #monitor progress
+                    sys.stdout.write('\r' + str(count)+' files downloaded, '+str(paths_tried) + ' paths tried.')
+                    sys.stdout.flush()
+
                     #if the excel file isn't already in the directory, then download
                     if not Path(path).is_file():
                         r = requests.get('https://www.va.gov/QUALITYOFCARE/SAIL_FY'+year+'_Q'+qtr+'/' + filename)
